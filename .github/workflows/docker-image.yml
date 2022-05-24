@@ -1,0 +1,25 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: docker login
+      env:
+       DOCKER_USER : ${{secrets.alanjino}}
+       DOCKER_PASSWORD: ${{secrets.j2yda5kp*}}
+      run: docker login -u $DOCKER-USER -p $DOCKER-PASSWORD 
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag myimage:$(date +%s)
+    - name: Docker push
+      run : docker push ${{secrets.alanjino}}/mydockerfiles
