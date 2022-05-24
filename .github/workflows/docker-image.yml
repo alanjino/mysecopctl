@@ -22,4 +22,4 @@ jobs:
     - name: Build the Docker image
       run: docker build .
     - name: Docker push
-      run : docker push [docker.io/library/mydockerfiles]
+      run : docker push alanjino/mydockerfiles:tagname
