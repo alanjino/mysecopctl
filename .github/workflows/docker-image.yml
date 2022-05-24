@@ -15,9 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: docker login
-      env:
-       DOCKER_USER : ${{secrets.alanjino}}
-      run: docker login -u $DOCKER-USER  
+    
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag myimage:$(date +%s)
     - name: Docker push
