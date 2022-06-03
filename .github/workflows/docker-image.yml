@@ -38,5 +38,5 @@ jobs:
     - name: sign the published docker image
       env:
         COSIGN_PASSWORD: ${{secrets.COSIGN_PASSWORD}}
-      run: cosign sign --key cosign.key alanjino/mydockerfiles
+      run: cosign sign --key cosign.key ${{ env.REGISTRY}}/${{github.actor}}/${{env.IMAGE_NAME}}:${{github.run_id}}
       
