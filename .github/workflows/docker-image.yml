@@ -14,10 +14,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      with:
-        registry: ${{env.REGISTRY}}
-        username: ${{github.actor}}
-        password: ${{secrets.GIT_TOKENS}}
+     
     - name: docker login
       env:
        DOCKER_USER : ${{secrets.DOCKER_USER}}
@@ -42,5 +39,5 @@ jobs:
     - name: sign the published docker image
       env:
         COSIGN_PASSWORD: ${{secrets.COSIGN_PASSWORD}}
-      run: cosign sign --key cosign.key ${{ env.REGISTRY}}/alanjino/mydockerfiles
+      run: cosign sign --key cosign.key alanjino/mydockerfiles
       
