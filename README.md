@@ -1,1 +1,1 @@
-# mysecopctl project
+# mysecopctl projects
